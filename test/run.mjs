@@ -158,6 +158,23 @@ console.log("9. 重复安装/恢复幂等 ✓");
   console.log("10. 纯函数与校验 ✓");
 }
 
+// ---- 11. 本地隧道形态：目标 URL 内嵌在路径里（如 billion-context /bili/<url>） ----
+{
+  const tunnel = `http://127.0.0.1:18787/bili/${origin}/v1/messages?beta=true`;
+  const plan = rewriteRequest(tunnel, { method: "POST", headers: { ...jsonHeaders }, body: body1 }, cfg);
+  assert.ok(plan, "隧道 URL 应命中改写");
+  assert.equal(plan.init.headers["x-app"], "cli");
+  const sent = JSON.parse(plan.init.body);
+  assert.ok(sent.system[0].text.startsWith("x-anthropic-billing-header"));
+  assert.ok(sent.metadata.user_id);
+  // URL 编码过的隧道形态也要命中
+  const encoded = `http://127.0.0.1:18787/bili/${encodeURIComponent(`${origin}/v1/messages`)}`;
+  assert.ok(rewriteRequest(encoded, {}, cfg), "URL 编码的隧道 URL 应命中改写");
+  // 隧道目标不是 upstream：仍然不命中
+  assert.equal(rewriteRequest("http://127.0.0.1:18787/bili/https://example.com/v1/messages", {}, cfg), null);
+  console.log("11. 本地隧道内嵌 URL 命中 ✓");
+}
+
 server.close();
 other.close();
 console.log("\n全部通过 ✓");
