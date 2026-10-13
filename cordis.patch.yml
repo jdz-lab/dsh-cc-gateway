@@ -1,0 +1,10 @@
+# dsh-cc-gateway bundle patch —— 在空 profile 根之上插入一个条目：
+# 作用域受限的 Claude Code 指纹 fetch 改写器。upstreams 指向你的内网网关
+# （示例为占位符），改成真实地址即可（或在本 profile 的 cordis.patch.yml 里覆盖）。
+
+- insert:
+    - id: cc-gateway
+      name: dsh-cc-gateway
+      config:
+        upstreams:
+          - https://gw.example.com
