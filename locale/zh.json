@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Claude Code 网关直连",
+    "description": "在 DSH 宿主进程内为发往内网网关的模型请求注入 Claude Code 客户端指纹：直连网关，免本地代理。"
+  }
+}

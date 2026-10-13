@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Claude Code Gateway",
+    "description": "Injects Claude Code client fingerprints for intranet gateway requests inside the DSH host process — direct connection, no local proxy."
+  }
+}

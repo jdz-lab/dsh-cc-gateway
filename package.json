@@ -1,18 +1,22 @@
 {
   "name": "dsh-cc-gateway",
-  "description": "Claude Code client-fingerprint fetch rewriter for DSH: reach Claude-Code-gated Anthropic gateways directly, without a local proxy hop",
+  "description": "在 DSH 宿主进程内注入 Claude Code 客户端指纹，模型路由直连校验指纹的内网网关，免本地代理",
   "version": "1.0.0",
   "type": "module",
   "main": "lib/index.js",
+  "icon": "./icon.svg",
   "exports": {
     ".": "./lib/index.js",
     "./package.json": "./package.json",
-    "./cordis.patch.yml": "./cordis.patch.yml"
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./locale/*.json": "./locale/*.json"
   },
   "files": [
     "lib/index.js",
     "cordis.patch.yml",
-    "README.md"
+    "README.md",
+    "icon.svg",
+    "locale/*.json"
   ],
   "license": "MIT",
   "repository": {
