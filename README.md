@@ -1,8 +1,8 @@
 # dsh-cc-gateway
 
-> 把 cc-lens 的 Claude Code 客户端指纹注入搬进 DeepSeek Harness（DSH）宿主进程，让 `dsh-llm-pi-ai` 的模型路由**直连**校验 Claude Code 指纹的公司内网网关 —— 不再需要单独启动本地代理进程。
+> 把 [cc-lens](https://github.com/jdz-lab/cc-lens) 的 Claude Code 客户端指纹注入搬进 DeepSeek Harness（DSH）宿主进程，让 `dsh-llm-pi-ai` 的模型路由**直连**校验 Claude Code 指纹的公司内网网关 —— 不再需要单独启动本地代理进程。
 
-> **发布说明**：本仓库为公开副本，示例中的网关地址（`gw.example.com`）均为占位符，`upstreams` 请换成你自己的内网网关地址。指纹常量来自对真实 Claude Code 流量的抓包分析，见 cc-lens 项目。
+> **发布说明**：本仓库为公开副本，示例中的网关地址（`gw.example.com`）均为占位符，`upstreams` 请换成你自己的内网网关地址。指纹常量来自对真实 Claude Code 流量的抓包分析，见 [cc-lens](https://github.com/jdz-lab/cc-lens) 项目。
 
 ## 这是什么
 
